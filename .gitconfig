@@ -5,3 +5,9 @@
 	# OPENING GITHUB.COM FROM THE TERMINAL	
 	browse = '!open `git config remote.origin.url`'
 	
+	#OPENING THE BRANCH COMPARE WEB PAGE
+	pr = '!f(){ URL=$(git config remote.origin.url); open ${URL%.git}/compare/$(git rev-parse --abbrev-ref HEAD); }; f'
+	
+	# following alias deletes all branches that have already been merged into the target branch. If no target branch is specified, then it assumes the master branch.
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+	
