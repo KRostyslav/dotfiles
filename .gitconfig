@@ -1,4 +1,35 @@
+[user]
+	name = krostyslav
+	email = *** @***.***
+	username = krostyslav
+[core]
+	editor = vim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = ~/.gitignore
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+[commit]
+	template = ~/.gitmessage
 [alias]
+	cm = checkout master
+	fm = fetch origin master:master
+	mm = merge master
+	rbm = git rebase master
+	
 	# git migrate <new-branch-name> <target-branch> <commit-range>
 	migrate = "!f(){ CURRENT=$(git symbolic-ref --short HEAD); git checkout -b $1 && git branch --force $CURRENT ${3-$CURRENT@{u}} && git rebase --onto ${2-master} $CURRENT; }; f"
 
@@ -10,4 +41,6 @@
 	
 	# following alias deletes all branches that have already been merged into the target branch. If no target branch is specified, then it assumes the master branch.
 	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+	
+
 	
