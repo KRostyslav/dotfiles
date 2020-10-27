@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Delete node_modules and install new
+alias refresh="rm -rf node_modules/ package-lock.json && npm install"
+
 # List all node_modules
 alias all_node="find . -name "node_modules" -type d -prune -print | xargs du -chs"
 
